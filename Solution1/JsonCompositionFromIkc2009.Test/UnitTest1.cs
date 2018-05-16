@@ -22,7 +22,7 @@ namespace JsonCompositionFromIkc2009.Test
             var compositionContent = (Xml2CSharp.Composition)serializer.Deserialize(reader);
             reader.Close();
 
-            Assert.AreEqual("hello", "hello");
+            Assert.AreEqual("helloa", "helloa");
         }
     }
 }
