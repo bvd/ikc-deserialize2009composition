@@ -24,7 +24,7 @@ namespace JsonCompositionFromIkc2009
         public int published { get; set; }
         public int hasmp3 { get; set; }
         public string name { get; set; }
-        public int mtime { get; set; }
+        public int? mtime { get; set; }
         public int project_id { get; set; }
         public int limited { get; set; }
         public int empty { get; set; }
