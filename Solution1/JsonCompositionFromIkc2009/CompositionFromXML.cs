@@ -1,6 +1,5 @@
 ﻿/* 
  Licensed under the Apache License, Version 2.0
-
  http://www.apache.org/licenses/LICENSE-2.0
  */
 using System;
@@ -18,6 +17,9 @@ namespace Xml2CSharp
     [XmlRoot(ElementName = "event")]
     public class Event
     {
+        /// <summary>
+        /// comment
+        /// </summary>
         [XmlElement(ElementName = "source")]
         public Source Source { get; set; }
         [XmlAttribute(AttributeName = "id")]
