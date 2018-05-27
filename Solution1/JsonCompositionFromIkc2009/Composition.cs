@@ -37,7 +37,7 @@ namespace JsonCompositionFromIkc2009.TableStorage
 
     public class Scroll : TableEntity
     {
-        public Scroll(JsonCompositionFromIkc2009.Scrollitem scroll, string scroll_identifier)
+        public Scroll(string scroll_identifier)
         {
             this.PartitionKey = scroll_identifier;
             this.RowKey = scroll_identifier;
@@ -47,7 +47,7 @@ namespace JsonCompositionFromIkc2009.TableStorage
 
     public class Config : TableEntity
     {
-        public Config(string config_identifier, Dictionary<string, string> config)
+        public Config(string config_identifier)
         {
             this.PartitionKey = config_identifier;
             this.RowKey = config_identifier;
