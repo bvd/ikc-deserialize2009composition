@@ -9,6 +9,7 @@ namespace JsonCompositionFromIkc2009.TableStorage
 {
     public class Composition : TableEntity
     {
+        public Composition() { }
         public string Environment { get; set; }
         public string Scroll { get; set; }
         public string Config { get; set; }
@@ -28,6 +29,7 @@ namespace JsonCompositionFromIkc2009.TableStorage
 
     public class Environment : TableEntity
     {
+        public Environment() { }
         public Environment(string environment_identifier)
         {
             this.PartitionKey = environment_identifier;
@@ -37,6 +39,8 @@ namespace JsonCompositionFromIkc2009.TableStorage
 
     public class Scroll : TableEntity
     {
+        public Scroll() { }
+
         public Scroll(string scroll_identifier)
         {
             this.PartitionKey = scroll_identifier;
@@ -47,6 +51,7 @@ namespace JsonCompositionFromIkc2009.TableStorage
 
     public class Config : TableEntity
     {
+        public Config() { }
         public Config(string config_identifier)
         {
             this.PartitionKey = config_identifier;
