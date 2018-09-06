@@ -24,8 +24,9 @@ namespace JsonCompositionFromIkc2009
         public int published { get; set; }
         public int hasmp3 { get; set; }
         public string name { get; set; }
-        public int? mtime { get; set; }
+        public int? created { get; set; }
         public int project_id { get; set; }
+        public int user_id { get; set; }
         public int limited { get; set; }
         public int empty { get; set; }
         public int migrated { get; set; }
@@ -70,8 +71,8 @@ namespace JsonCompositionFromIkc2009
         public string ficonroll { get; set; }
         public int order { get; set; }
         public string color { get; set; }
-        public int? width { get; set; }
-        public int? height { get; set; }
+        public string width { get; set; }
+        public string height { get; set; }
     }
 
     public class Projectrule

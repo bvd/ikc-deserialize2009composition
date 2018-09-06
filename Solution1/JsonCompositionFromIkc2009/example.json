@@ -46,7 +46,7 @@
         "description": "wat is de waarde van een beat",
         "value": "4"
       },
-      {
+      { 
         "id": "5",
         "type": "screenWidthInMeasures",
         "description": "hoeveel maten zijn tegelijk zichtbaar",
@@ -74,7 +74,7 @@
     "projectMaterial": {
       "id": "6",
       "name": "Beethoven",
-      "textSlogan": "Dit is de eerste muziek die <br/>het Metropole voor de cmoponeertool opgenomen heeft.",
+      "textSlogan": "Dit is de eerste muziek die <br/>het Metropole voor de componeertool opgenomen heeft.",
       "background": "http://ikcomponeer.nl/data/clients/3/images/template_slogans/beethoven.png",
       "type": "template",
       "parts": {
@@ -1488,14 +1488,4 @@
     }
   ],
   "scrollitems_identifier": "17",
-  "conf_identifier": "6-17",
-  "conf_override": {
-    "conf_helpVidDialAtStartUp": "0",
-    "conf_topLeftButtonText": "MUZIEK LIJST",
-    "conf_topLeftButtonNote": "open session module",
-    "conf_topLeftButtonMode": "button",
-    "conf_saveButtonVisible": "1",
-    "conf_defaultTemplateCompositionId": "6028",
-    "conf_licenseText": "Gelicenseerd aan: <br/>Metropole Orkest<br/>"
-  }
 }
