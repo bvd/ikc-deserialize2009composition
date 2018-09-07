@@ -394,6 +394,9 @@ namespace JsonCompositionFromIkc2009.Events
 
             _compositionEvents.Add(
                 new CompositionCreated {
+                    Conf = root.conf_identifier,
+                    Scroll = root.scrollitems_identifier,
+                    Environment = root.environment_identifier,
                     Name = root.composition.name,
                     Id = root.composition.id,
                     Time = root.composition.created,
