@@ -69,6 +69,7 @@
     <Compile Include="Composition.cs" />
     <Compile Include="Composition2009.cs" />
     <Compile Include="CompositionFromXML.cs" />
+    <Compile Include="Events\Composition\ClearCompositionEvent.cs" />
     <Compile Include="Events\Config\AudioTipsConfigured.cs" />
     <Compile Include="Events\Config\BackgroundImageConfigured.cs" />
     <Compile Include="Events\Config\ButtonBehaviorConfigured.cs" />
