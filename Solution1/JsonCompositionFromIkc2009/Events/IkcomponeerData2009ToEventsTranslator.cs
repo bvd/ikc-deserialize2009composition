@@ -21,7 +21,7 @@ namespace JsonCompositionFromIkc2009.Events
     {
         private readonly List<ITableEntity> _environmentEvents = new List<ITableEntity>();
 
-        public IEnumerable<ITableEntity> EnvironmentEvents
+        public List<ITableEntity> EnvironmentEvents
         {
             get
             {
@@ -31,7 +31,7 @@ namespace JsonCompositionFromIkc2009.Events
 
         private readonly List<ITableEntity> _projectEvents = new List<ITableEntity>();
 
-        public IEnumerable<ITableEntity> ProjectEvents
+        public List<ITableEntity> ProjectEvents
         {
             get
             {
@@ -41,7 +41,7 @@ namespace JsonCompositionFromIkc2009.Events
 
         private readonly List<ITableEntity> _scrollEvents = new List<ITableEntity>();
 
-        public IEnumerable<ITableEntity> ScrollEvents
+        public List<ITableEntity> ScrollEvents
         {
             get
             {
@@ -51,16 +51,12 @@ namespace JsonCompositionFromIkc2009.Events
 
         private readonly List<ITableEntity> _compositionEvents = new List<ITableEntity>();
 
-        public IEnumerable<ITableEntity> CompositionEvents
+        public List<ITableEntity> CompositionEvents
         {
             get
             {
                 return this._compositionEvents;
             }
-        }
-        public ClearCompositionEvent GenerateClearCompositionEvent()
-        {
-            return new ClearCompositionEvent();
         }
 
         /// <summary>
@@ -391,6 +387,8 @@ namespace JsonCompositionFromIkc2009.Events
                 Index = x.order,
                 Id = x.id
             }));
+
+            _compositionEvents.Add(new ClearCompositionEvent());
 
             _compositionEvents.Add(
                 new CompositionCreated {
