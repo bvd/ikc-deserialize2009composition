@@ -173,14 +173,25 @@ namespace JsonCompositionFromIkc2009.Events
                 }
             }
 
-            foreach(var musicPartCreatedEvent in MusicPartCreatedSortList.OrderBy(x => x.Key))
+            var musicPartCreatedEvents = from x in MusicPartCreatedSortList
+                                        orderby x.Key.Length, x.Key
+                       select x;
+
+
+
+            foreach (var musicPartCreatedEvent in musicPartCreatedEvents)
             {
                 _environmentEvents.Add(musicPartCreatedEvent.Value);
-                foreach(var musicClipCreatedEvent in MusicClipsSortLists[musicPartCreatedEvent.Key].OrderBy(y => y.Key))
+
+                var musicClipCreatedEvents = from y in MusicClipsSortLists[musicPartCreatedEvent.Key]
+                                             orderby y.Key.Length, y.Key
+                                             select y;
+
+                foreach (var musicClipCreatedEvent in musicClipCreatedEvents)
                 {
                     var clip = musicClipCreatedEvent.Value as MusicClipCreated;
                     var sort = musicClipCreatedEvent.Key;
-                    _environmentEvents.Add(musicClipCreatedEvent.Value);
+                     _environmentEvents.Add(musicClipCreatedEvent.Value);
                 }
             }
 
