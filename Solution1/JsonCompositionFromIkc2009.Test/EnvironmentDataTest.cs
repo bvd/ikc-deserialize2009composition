@@ -135,6 +135,14 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.IsTrue(clip1037index > clip1039index);
         }
 
+        [TestMethod]
+        public void TranslatorEnvironment_Clip_EntryPointShouldBeTranslated()
+        {
+            var t = Translator("56692.json");
+            var clip = t.EnvironmentEvents.Single(x => x is MusicClipCreated && (x as MusicClipCreated).id == "1904") as MusicClipCreated;
+            Assert.AreEqual(375, clip.entrypoint);
+        }
+
         private IkcomponeerData2009ToEventsTranslator __translator;
 
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
