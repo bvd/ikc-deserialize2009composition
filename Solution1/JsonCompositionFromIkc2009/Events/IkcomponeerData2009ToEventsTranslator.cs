@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -120,8 +121,8 @@ namespace JsonCompositionFromIkc2009.Events
 
             var setId = root.environment.projectMaterial.id;
 
-            var MusicPartCreatedSortList = new Dictionary<int, MusicPartCreated>();
-            var MusicClipsSortLists = new Dictionary<int, Dictionary<int, MusicClipCreated>>();
+            var MusicPartCreatedSortList = new Dictionary<string, MusicPartCreated>();
+            var MusicClipsSortLists = new Dictionary<string, Dictionary<string, MusicClipCreated>>();
 
             var orderSuitableToSortOn =
                 root.environment.projectMaterial.parts.Count == root.environment.projectMaterial.parts.GroupBy(x => x.Value.order).Count();
@@ -144,7 +145,7 @@ namespace JsonCompositionFromIkc2009.Events
                         marginY = part.marginy
                     });
 
-                MusicClipsSortLists.Add(order, new Dictionary<int, MusicClipCreated>());
+                MusicClipsSortLists.Add(order, new Dictionary<string, MusicClipCreated>());
 
                 var clipsOrderSuitableToSortOn =
                     part.clips.Count == part.clips.GroupBy(x => x.Value.order).Count();
@@ -177,6 +178,8 @@ namespace JsonCompositionFromIkc2009.Events
                 _environmentEvents.Add(musicPartCreatedEvent.Value);
                 foreach(var musicClipCreatedEvent in MusicClipsSortLists[musicPartCreatedEvent.Key].OrderBy(y => y.Key))
                 {
+                    var clip = musicClipCreatedEvent.Value as MusicClipCreated;
+                    var sort = musicClipCreatedEvent.Key;
                     _environmentEvents.Add(musicClipCreatedEvent.Value);
                 }
             }

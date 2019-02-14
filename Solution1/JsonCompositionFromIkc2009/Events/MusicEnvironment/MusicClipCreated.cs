@@ -10,7 +10,7 @@ namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
     public class MusicClipCreated: TableEntity, IMusicEnvironmentEvent
     {
         public string id { get; set; }
-        public int partId { get; set; }
+        public string partId { get; set; }
         public int exitpoint { get; set; }
         public int entrypoint { get; set; }
         public string name { get; set; }

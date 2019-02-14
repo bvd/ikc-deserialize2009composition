@@ -128,9 +128,9 @@ namespace JsonCompositionFromIkc2009.Test
             var clip1039 = t.EnvironmentEvents.Single(x => x is MusicClipCreated && (x as MusicClipCreated).id == "1039") as MusicClipCreated;
             var clip1038 = t.EnvironmentEvents.Single(x => x is MusicClipCreated && (x as MusicClipCreated).id == "1038") as MusicClipCreated;
             var clip1037 = t.EnvironmentEvents.Single(x => x is MusicClipCreated && (x as MusicClipCreated).id == "1037") as MusicClipCreated;
-            var clip1039index = t.EnvironmentEvents.IndexOf(clip1039);
-            var clip1038index = t.EnvironmentEvents.IndexOf(clip1038);
-            var clip1037index = t.EnvironmentEvents.IndexOf(clip1037);
+            var clip1039index = t.EnvironmentEvents.IndexOf(clip1039);//16
+            var clip1038index = t.EnvironmentEvents.IndexOf(clip1038);//2
+            var clip1037index = t.EnvironmentEvents.IndexOf(clip1037);//23
             Assert.IsTrue(clip1039index > clip1038index);
             Assert.IsTrue(clip1037index > clip1039index);
         }

@@ -42,7 +42,7 @@ namespace JsonCompositionFromIkc2009
 
     public class Projectmaterial
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string name { get; set; }
         public string textSlogan { get; set; }
         public string background { get; set; }
@@ -52,18 +52,18 @@ namespace JsonCompositionFromIkc2009
 
     public class Part
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string name { get; set; }
         public int marginx { get; set; }
         public int marginy { get; set; }
-        public int order { get; set; }
+        public string order { get; set; }
         public int width { get; set; }
         public Dictionary<int, Clip> clips { get; set; }
     }
 
     public class Clip
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public int exitpoint { get; set; }
         public int entrypoint { get; set; }
         public string name { get; set; }
@@ -71,7 +71,7 @@ namespace JsonCompositionFromIkc2009
         public string icon { get; set; }
         public string ficon { get; set; }
         public string ficonroll { get; set; }
-        public int order { get; set; }
+        public string order { get; set; }
         public string color { get; set; }
         public string width { get; set; }
         public string height { get; set; }
