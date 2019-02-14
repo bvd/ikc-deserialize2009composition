@@ -25,8 +25,10 @@ namespace JsonCompositionFromIkc2009
         public int hasmp3 { get; set; }
         public string name { get; set; }
         public int? created { get; set; }
-        public int project_id { get; set; }
+        public int? project_id { get; set; }
         public int user_id { get; set; }
+
+        public string username { get; set; }
         public int limited { get; set; }
         public int empty { get; set; }
         public int migrated { get; set; }

@@ -120,42 +120,64 @@ namespace JsonCompositionFromIkc2009.Events
 
             var setId = root.environment.projectMaterial.id;
 
+            var MusicPartCreatedSortList = new Dictionary<int, MusicPartCreated>();
+            var MusicClipsSortLists = new Dictionary<int, Dictionary<int, MusicClipCreated>>();
+
+            var orderSuitableToSortOn =
+                root.environment.projectMaterial.parts.Count == root.environment.projectMaterial.parts.GroupBy(x => x.Value.order).Count();
+            
             foreach (var partKVP in root.environment.projectMaterial.parts)
             {
                 var part = partKVP.Value;
                 var partId = part.id;
-                _environmentEvents.Add(
+
+                var order = orderSuitableToSortOn ? part.order : part.id;
+
+                MusicPartCreatedSortList.Add(order,
                     new MusicPartCreated
                     {
                         id = part.id,
                         setId = setId,
                         name = part.name,
-                        order = part.order,
                         width = part.width,
                         marginX = part.marginx,
                         marginY = part.marginy
                     });
 
+                MusicClipsSortLists.Add(order, new Dictionary<int, MusicClipCreated>());
+
+                var clipsOrderSuitableToSortOn =
+                    part.clips.Count == part.clips.GroupBy(x => x.Value.order).Count();
+
                 foreach (var clipKVP in part.clips)
                 {
                     var clip = clipKVP.Value;
-                    _environmentEvents.Add(
-                        new MusicClipCreated
-                        {
-                            id = clip.id,
-                            partId = partId,
-                            color = clip.color,
-                            entrypoint = clip.entrypoint,
-                            exitpoint = clip.exitpoint,
-                            ficon = clip.ficon,
-                            ficonroll = clip.ficonroll,
-                            height = clip.height,
-                            icon = clip.icon,
-                            name = clip.name,
-                            order = clip.order,
-                            tag = clip.tag,
-                            width = clip.width
-                        });
+                    var clipOrder = clipsOrderSuitableToSortOn ? clip.order : clip.id;
+
+                    MusicClipsSortLists[order].Add(clipOrder, new MusicClipCreated
+                    {
+                        id = clip.id,
+                        partId = partId,
+                        color = clip.color,
+                        entrypoint = clip.entrypoint,
+                        exitpoint = clip.exitpoint,
+                        ficon = clip.ficon,
+                        ficonroll = clip.ficonroll,
+                        iconAdjustHeight = clip.height,
+                        icon = clip.icon,
+                        name = clip.name,
+                        tag = clip.tag,
+                        iconAdjustWidth = clip.width
+                    });
+                }
+            }
+
+            foreach(var musicPartCreatedEvent in MusicPartCreatedSortList.OrderBy(x => x.Key))
+            {
+                _environmentEvents.Add(musicPartCreatedEvent.Value);
+                foreach(var musicClipCreatedEvent in MusicClipsSortLists[musicPartCreatedEvent.Key].OrderBy(y => y.Key))
+                {
+                    _environmentEvents.Add(musicClipCreatedEvent.Value);
                 }
             }
 
@@ -263,16 +285,16 @@ namespace JsonCompositionFromIkc2009.Events
                 }));
 
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "numTracks").Select(
+            _projectEvents.AddRange(root.environment.projectRules.Where(x => x.type == "numTracks").Select(
                 x => new NumberOfTracksConfigured
                 {
-                    NumberOfTracks = int.Parse(x.Value)
+                    NumberOfTracks =(int) x.value
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "trackHeight").Select(
+            _projectEvents.AddRange(root.environment.projectRules.Where(x => x.type == "trackHeight").Select(
                 x => new TrackHeightConfigured
                 {
-                    TrackHeight = int.Parse(x.Value)
+                    TrackHeight = (int)x.value
                 }));
 
             _projectEvents.AddRange(root.conf_override.Where(
@@ -398,7 +420,8 @@ namespace JsonCompositionFromIkc2009.Events
                     Name = root.composition.name,
                     Id = root.composition.id,
                     Time = root.composition.created,
-                    User = root.composition.user_id
+                    User = root.composition.user_id,
+                    UserName = root.composition.username
                 });
         }
 

@@ -71,12 +71,109 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="EnvironmentDataTest.cs" />
+    <Compile Include="MigratedCompositionDataTests.cs" />
+    <Compile Include="MigratedRootIdentifiersTests.cs" />
+    <Compile Include="EssentialEnvironmentParametersMigrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="wegstrepert\15441.json" />
+    <None Include="wegstrepert\15683.json" />
+    <None Include="wegstrepert\16749.json" />
+    <None Include="wegstrepert\25522.json" />
+    <None Include="wegstrepert\27129.json" />
+    <None Include="wegstrepert\29508.json" />
+    <None Include="wegstrepert\33410.json" />
+    <None Include="wegstrepert\43112.json" />
+    <None Include="wegstrepert\56574.json" />
+    <None Include="wegstrepert\56692.json" />
+    <None Include="wegstrepert\5967.json" />
+    <None Include="wegstrepert\5968.json" />
+    <None Include="wegstrepert\5969.json" />
+    <None Include="wegstrepert\5970.json" />
+    <None Include="wegstrepert\5971.json" />
+    <None Include="wegstrepert\6028.json" />
+    <None Include="wegstrepert\6033.json" />
+    <None Include="wegstrepert\6592.json" />
+    <None Include="wegstrepert\6733.json" />
+    <None Include="wegstrepert\6734.json" />
+    <None Include="wegstrepert\6735.json" />
+    <None Include="wegstrepert\6901.json" />
+    <None Include="wegstrepert\9944.json" />
+    <None Include="sample\16749.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\56692.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\56574.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\43112.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\33410.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\29508.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\27129.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\25522.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\15683.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\15441.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\9944.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\6735.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\6734.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\6733.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="sample\6901.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="sample\6592.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\5971.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\5970.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\5969.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\6028.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\5968.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\6033.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\5967.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="sample\example.json" />
+    <None Include="sample\rawdata_linted.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sample\rawdata.txt">
