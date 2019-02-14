@@ -1,43 +1,4 @@
 ﻿{
-  
-  "environment": {
-    "projectMaterial": {
-      "parts": {
-        "73": {
-          "clips": {
-            "1116": {
-              "id": "1102",
-              "exitpoint": "2143",
-              "entrypoint": "0",
-              "name": "9bas",
-              "tag": "B0",
-              "icon": "",
-              "ficon": null,
-              "ficonroll": null,
-              "order": "0",
-              "color": "#F8EF30",
-              "width": "",
-              "height": ""
-            },
-            "1117": {
-              "id": "1103",
-              "exitpoint": "2143",
-              "entrypoint": "0",
-              "name": "10bas",
-              "tag": "B1",
-              "icon": "",
-              "ficon": null,
-              "ficonroll": null,
-              "order": "1",
-              "color": "#F29D1E",
-              "width": "",
-              "height": ""
-            }
-          }
-        }
-      }
-    }
-  },
   "scrollitems": [
     {
       "id": "6592",

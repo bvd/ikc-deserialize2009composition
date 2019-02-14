@@ -143,6 +143,34 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.AreEqual(375, clip.entrypoint);
         }
 
+        [TestMethod]
+        public void TranslatorEnvironment_Clip_ImageManipulationsTranslated()
+        {
+            var t = Translator("56574.json");
+            var clip = t.EnvironmentEvents.Single(x => x is MusicClipCreated && (x as MusicClipCreated).id == "1996") as MusicClipCreated;
+            Assert.AreEqual("+=4px", clip.iconAdjustWidth);
+            Assert.AreEqual("+=4px", clip.iconAdjustHeight);
+        }
+
+        [TestMethod]
+        public void TranslatorEnvironment_Clip_ColorCanBeHyphensTranslated()
+        {
+            var t = Translator("33410.json");
+            var clip = t.EnvironmentEvents.Single(x => x is MusicClipCreated && (x as MusicClipCreated).id == "1768") as MusicClipCreated;
+            Assert.AreEqual("#------", clip.color);
+        }
+
+        [TestMethod]
+        public void TranslatorEnvironment_Clip_MouseOverAndDragIconsTranslated()
+        {
+            var t = Translator("33410.json");
+            var clip = t.EnvironmentEvents.Single(x => x is MusicClipCreated && (x as MusicClipCreated).id == "1770") as MusicClipCreated;
+            Assert.AreEqual("images/yvo_antenna/losseknoppen4.png", clip.ficon);
+            Assert.AreEqual("images/yvo_antenna/rolloverKNOPPEN2.png", clip.ficonroll);
+        }
+
+
+
         private IkcomponeerData2009ToEventsTranslator __translator;
 
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
