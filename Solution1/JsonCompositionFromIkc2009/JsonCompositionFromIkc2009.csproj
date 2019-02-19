@@ -98,10 +98,10 @@
     <Compile Include="Events\IkcomponeerData2009ToEventsTranslator.cs" />
     <Compile Include="Events\MusicEnvironment\IMusicEnvironmentEvent.cs" />
     <Compile Include="Events\Scroll\IScroll.cs" />
-    <Compile Include="Events\Scroll\LicenseTextConfigured.cs" />
-    <Compile Include="Events\Scroll\LoggerButtonsHidden.cs" />
-    <Compile Include="Events\Scroll\MagicDelayConfigured.cs" />
-    <Compile Include="Events\Scroll\MaskButtonsTurnedOff.cs" />
+    <Compile Include="Events\Config\LicenseTextConfigured.cs" />
+    <Compile Include="Events\Config\LoggerButtonsHidden.cs" />
+    <Compile Include="Events\Config\MagicDelayConfigured.cs" />
+    <Compile Include="Events\Config\MaskButtonsTurnedOff.cs" />
     <Compile Include="Events\MusicEnvironment\MeasureDefined.cs" />
     <Compile Include="Events\MusicEnvironment\MusicClipCreated.cs" />
     <Compile Include="Events\MusicEnvironment\MusicPartCreated.cs" />
