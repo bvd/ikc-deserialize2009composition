@@ -234,7 +234,7 @@ namespace JsonCompositionFromIkc2009.Events
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_defaultTemplateCompositionId").Select(
                 x => new TemplateCompositionConfigured { Id = x.Value }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "slogan").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_slogan").Select(
                 x => new SloganConfigured { Value = x.Value }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "hide_subparts").Select(

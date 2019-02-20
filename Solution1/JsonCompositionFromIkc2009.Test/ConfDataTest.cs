@@ -136,6 +136,23 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.IsTrue(c);
         }
 
+        [TestMethod]
+        public void Translator_Conf_SloganConfigured_None()
+        {
+            var t = Translator("33410.json");
+            var c = t.ProjectEvents.Any(x => x is SloganConfigured);
+            Assert.IsFalse(c);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_SloganConfigured()
+        {
+            var t = Translator("16749.json");
+            var c = t.ProjectEvents.Single(x => x is SloganConfigured) as SloganConfigured;
+            var txt = "Je gaat je eigen nummer maken. Kies een beat en sleep de blokjes naar boven.<br/>Klaar? Klik op verder om door te gaan met je eigen nummer!";
+            Assert.AreEqual(txt, c.Value);
+        }
+
 
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
         {
