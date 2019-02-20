@@ -1,6 +1,5 @@
 ﻿{
   "conf_override": {
-    "conf_topLeftButtonText": "MUZIEK LIJST",
     "conf_topLeftButtonNote": "open session module",
     "conf_topLeftButtonMode": "button",
     "conf_saveButtonVisible": "0",

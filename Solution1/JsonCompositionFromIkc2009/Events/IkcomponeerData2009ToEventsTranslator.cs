@@ -200,7 +200,7 @@ namespace JsonCompositionFromIkc2009.Events
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key.Contains("ButtonText")).Select(
                 x => new ButtonTextConfigured {
-                    ButtonPosition = x.Key == "topLeftButtonText" ? ButtonPosition.Left : ButtonPosition.Right,
+                    ButtonPosition = x.Key == "conf_topLeftButtonText" ? ButtonPosition.Left : ButtonPosition.Right,
                     ButtonText = x.Value
                 }));
 

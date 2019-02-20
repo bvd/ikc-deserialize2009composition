@@ -1,6 +1,5 @@
 ﻿{
   "conf_override": {
-    "conf_topLeftButtonText": "",
     "conf_topLeftButtonNote": "play audio tip",
     "conf_topLeftButtonMode": "img",
     "conf_saveButtonVisible": "1",
