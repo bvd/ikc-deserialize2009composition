@@ -1,8 +1,6 @@
 ﻿{
   "conf_override": {
     "conf_slogan": "Je gaat je eigen nummer maken. Kies een beat en sleep de blokjes naar boven.<br/>Klaar? Klik op verder om door te gaan met je eigen nummer!",
-    "conf_hide_subparts": "78,79,80,82",
-    "conf_displayMenuLeft": "no",
-    "conf_displayMenuRight": "no"
+    "conf_hide_subparts": "78,79,80,82"
   }
 }

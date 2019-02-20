@@ -1,8 +1,6 @@
 ﻿{
   "conf_override": {
     "conf_hideScroll": "true",
-    "conf_showLoggerButtons": "0",
-    "conf_displayMenuRight": "no",
-    "conf_displayMenuLeft": "no"
+    "conf_showLoggerButtons": "0"
   }
 }

@@ -78,6 +78,8 @@
     <Compile Include="Events\Config\ButtonColorConfigured.cs" />
     <Compile Include="Events\Config\ButtonImgConfigured.cs" />
     <Compile Include="Events\Config\ButtonMode.cs" />
+    <Compile Include="Events\Config\MenuDisplayHiddenRight.cs" />
+    <Compile Include="Events\Config\MenuDisplayHiddenLeft.cs" />
     <Compile Include="Events\Config\ButtonModeConfigured.cs" />
     <Compile Include="Events\Config\ButtonPosition.cs" />
     <Compile Include="Events\Config\ButtonTextConfigured.cs" />

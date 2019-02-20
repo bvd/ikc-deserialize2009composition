@@ -418,6 +418,14 @@ namespace JsonCompositionFromIkc2009.Events
                     Hidden = true
                 }));
 
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_displayMenuRight").Select(
+                x => new MenuDisplayHiddenRight()          
+            ));
+
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_displayMenuLeft").Select(
+                x => new MenuDisplayHiddenLeft()
+            ));
+
             _scrollEvents.AddRange(root.scrollitems.OrderBy(x => x.order).Select(x => new ScrollItemAdded {
                 Name = x.name,
                 Index = x.order,

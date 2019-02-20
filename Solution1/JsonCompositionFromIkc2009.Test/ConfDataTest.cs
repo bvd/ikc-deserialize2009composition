@@ -104,6 +104,39 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.AreEqual("Gelicenseerd aan: <br/>Metropole Orkest<br/>", c.Text);
         }
 
+        [TestMethod]
+        public void Translator_Conf_MenuDisplayLeftHiddenNone()
+        {
+            var t = Translator("9944.json");
+            var c = t.ProjectEvents.Any(x => x is MenuDisplayHiddenLeft);
+            Assert.IsFalse(c);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_MenuDisplayRightHiddenNone()
+        {
+            var t = Translator("9944.json");
+            var c = t.ProjectEvents.Any(x => x is MenuDisplayHiddenRight);
+            Assert.IsFalse(c);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_MenuDisplayLeftHidden()
+        {
+            var t = Translator("56692.json");
+            var c = t.ProjectEvents.Any(x => x is MenuDisplayHiddenLeft);
+            Assert.IsTrue(c);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_MenuDisplayRightHidden()
+        {
+            var t = Translator("43112.json");
+            var c = t.ProjectEvents.Any(x => x is MenuDisplayHiddenRight);
+            Assert.IsTrue(c);
+        }
+
+
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
         {
             var t = new IkcomponeerData2009ToEventsTranslator();

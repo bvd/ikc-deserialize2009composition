@@ -166,11 +166,7 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.AreEqual("images/yvo_antenna/losseknoppen4.png", clip.ficon);
             Assert.AreEqual("images/yvo_antenna/rolloverKNOPPEN2.png", clip.ficonroll);
         }
-
-
-
-        private IkcomponeerData2009ToEventsTranslator __translator;
-
+        
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
         {
             var t = new IkcomponeerData2009ToEventsTranslator();
@@ -196,8 +192,6 @@ namespace JsonCompositionFromIkc2009.Test
             return t;
         }
 
-        private Xml2CSharp.Composition __compositionContent;
-
         private Xml2CSharp.Composition CompositionContent(Rootobject r)
         {
 
@@ -214,8 +208,6 @@ namespace JsonCompositionFromIkc2009.Test
             return c;
 
         }
-
-        private Rootobject __deserialized;
 
         private Rootobject DeserializedJson(string sampleFile)
         {
