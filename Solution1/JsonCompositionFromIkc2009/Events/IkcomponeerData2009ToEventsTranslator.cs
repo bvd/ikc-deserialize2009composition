@@ -418,10 +418,10 @@ namespace JsonCompositionFromIkc2009.Events
                     Hidden = true
                 }));
 
-            _scrollEvents.AddRange(root.scrollitems.Select(x => new ScrollItemAdded {
+            _scrollEvents.AddRange(root.scrollitems.OrderBy(x => x.order).Select(x => new ScrollItemAdded {
                 Name = x.name,
                 Index = x.order,
-                Id = x.id
+                Id = x.id.ToString()
             }));
 
             _compositionEvents.Add(new ClearCompositionEvent());

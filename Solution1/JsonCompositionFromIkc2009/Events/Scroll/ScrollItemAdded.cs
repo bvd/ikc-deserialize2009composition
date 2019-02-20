@@ -2,10 +2,10 @@
 
 namespace JsonCompositionFromIkc2009.Events.Scroll
 {
-    internal class ScrollItemAdded : TableEntity, IScroll
+    public class ScrollItemAdded : TableEntity, IScroll
     {
         public string Name { get; set; }
         public int Index { get; set; }
-        public int Id { get; set; }
+        public string Id { get; set; }
     }
 }

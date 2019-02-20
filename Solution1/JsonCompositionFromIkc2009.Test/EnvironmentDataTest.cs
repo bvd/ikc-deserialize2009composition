@@ -15,8 +15,6 @@ namespace JsonCompositionFromIkc2009.Test
     public class EnvironmentDataTest
     {
 
-        private string Sample = "6901.txt";
-
         [TestMethod]
         public void TranslatorEnvironment_Should_HaveCorrectValues()
         {
