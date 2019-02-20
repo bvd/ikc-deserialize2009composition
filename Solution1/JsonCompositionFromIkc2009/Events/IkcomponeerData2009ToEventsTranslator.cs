@@ -221,8 +221,8 @@ namespace JsonCompositionFromIkc2009.Events
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key.Contains("ButtonMode")).Select(
                 x => new ButtonModeConfigured
                 {
-                    ButtonPosition = x.Key == "TopLeftButtonNote" ? ButtonPosition.Left : ButtonPosition.Right,
-                    ButtonNote = ButtonModeTransformer.Transform(x.Value)
+                    ButtonPosition = x.Key == "conf_topLeftButtonMode" ? ButtonPosition.Left : ButtonPosition.Right,
+                    ButtonMode = ButtonModeTransformer.Transform(x.Value)
                 }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "showLoggerButtons").Select(

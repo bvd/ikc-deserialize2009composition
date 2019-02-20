@@ -5,6 +5,6 @@ namespace JsonCompositionFromIkc2009.Events.Config
     public class ButtonModeConfigured : TableEntity, IConfig
     {
         public ButtonPosition ButtonPosition { get; set; }
-        public ButtonMode ButtonNote { get; set; }
+        public ButtonMode ButtonMode { get; set; }
     }
 }

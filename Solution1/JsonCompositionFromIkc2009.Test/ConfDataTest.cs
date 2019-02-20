@@ -56,7 +56,21 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.AreEqual(IkcNotification.PlayPause, c.ButtonNote);
         }
 
+        [TestMethod]
+        public void TranslatorEnvironment_Conf_ButtonModeConfiguredLeft_Button()
+        {
+            var t = Translator("9944.json");
+            var c = t.ProjectEvents.Single(x => x is ButtonModeConfigured && (x as ButtonModeConfigured).ButtonPosition == ButtonPosition.Left) as ButtonModeConfigured;
+            Assert.AreEqual(ButtonMode.Button, c.ButtonMode);
+        }
 
+        [TestMethod]
+        public void TranslatorEnvironment_Conf_ButtonModeConfiguredLeft_Img()
+        {
+            var t = Translator("33410.json");
+            var c = t.ProjectEvents.Single(x => x is ButtonModeConfigured && (x as ButtonModeConfigured).ButtonPosition == ButtonPosition.Left) as ButtonModeConfigured;
+            Assert.AreEqual(ButtonMode.Img, c.ButtonMode);
+        }
 
         private IkcomponeerData2009ToEventsTranslator __translator;
 
