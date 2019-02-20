@@ -1,6 +1,5 @@
 ﻿{
   "conf_override": {
-    "conf_topLeftButtonNote": "open session module",
     "conf_topLeftButtonMode": "button",
     "conf_saveButtonVisible": "1",
     "conf_defaultTemplateCompositionId": "6028",

@@ -214,7 +214,7 @@ namespace JsonCompositionFromIkc2009.Events
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key.Contains("ButtonNote")).Select(
                 x => new ButtonBehaviorConfigured
                 {
-                    ButtonPosition = x.Key == "TopLeftButtonNote" ? ButtonPosition.Left : ButtonPosition.Right,
+                    ButtonPosition = x.Key == "conf_topLeftButtonNote" ? ButtonPosition.Left : ButtonPosition.Right,
                     ButtonNote = IkcNotificationTransformer.Transform(x.Value)
                 }));
 

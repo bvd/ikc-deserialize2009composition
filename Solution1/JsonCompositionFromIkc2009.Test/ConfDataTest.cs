@@ -32,6 +32,30 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.AreEqual("", c.ButtonText);
         }
 
+        [TestMethod]
+        public void TranslatorEnvironment_Conf_ButtonBehaviorConfiguredLeft_OpenSessionModule()
+        {
+            var t = Translator("9944.json");
+            var c = t.ProjectEvents.Single(x => x is ButtonBehaviorConfigured && (x as ButtonBehaviorConfigured).ButtonPosition == ButtonPosition.Left) as ButtonBehaviorConfigured;
+            Assert.AreEqual(IkcNotification.OpenSessionModule, c.ButtonNote);
+        }
+
+        [TestMethod]
+        public void TranslatorEnvironment_Conf_ButtonBehaviorConfiguredLeft_PlayAudioTip()
+        {
+            var t = Translator("56574.json");
+            var c = t.ProjectEvents.Single(x => x is ButtonBehaviorConfigured && (x as ButtonBehaviorConfigured).ButtonPosition == ButtonPosition.Left) as ButtonBehaviorConfigured;
+            Assert.AreEqual(IkcNotification.PlayAudioTip, c.ButtonNote);
+        }
+
+        [TestMethod]
+        public void TranslatorEnvironment_Conf_ButtonBehaviorConfiguredLeft_PlayPause()
+        {
+            var t = Translator("33410.json");
+            var c = t.ProjectEvents.Single(x => x is ButtonBehaviorConfigured && (x as ButtonBehaviorConfigured).ButtonPosition == ButtonPosition.Left) as ButtonBehaviorConfigured;
+            Assert.AreEqual(IkcNotification.PlayPause, c.ButtonNote);
+        }
+
 
 
         private IkcomponeerData2009ToEventsTranslator __translator;
