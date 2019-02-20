@@ -195,7 +195,7 @@ namespace JsonCompositionFromIkc2009.Events
                 }
             }
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "saveButtonVisible").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_saveButtonVisible").Select(
                 x => new SaveButtonVisibilityConfigured { Visible = x.Value == "1" }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key.Contains("ButtonText")).Select(
@@ -228,11 +228,11 @@ namespace JsonCompositionFromIkc2009.Events
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "showLoggerButtons").Select(
                 x => new LoggerButtonsHidden { Show = x.Value != "0" }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "licenseText").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_licenseText").Select(
                 x => new LicenseTextConfigured { Text = x.Value }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "defaultTemplateCompositionId").Select(
-                x => new TemplateCompositionConfigured { Id = int.Parse(x.Value) }));
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_defaultTemplateCompositionId").Select(
+                x => new TemplateCompositionConfigured { Id = x.Value }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "slogan").Select(
                 x => new SloganConfigured { Value = x.Value }));

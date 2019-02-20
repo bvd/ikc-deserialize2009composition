@@ -1,9 +1,6 @@
 ﻿{
   
   "conf_override": {
-    "conf_saveButtonVisible": "0",
-    "conf_defaultTemplateCompositionId": "6028",
-    "conf_licenseText": "Gelicenseerd aan: <br/>Metropole Orkest<br/>",
     "conf_centerTracks": "true",
     "conf_composition_playmode": "upDown",
     "conf_topLeftButtonClass": "Karola.rondje",

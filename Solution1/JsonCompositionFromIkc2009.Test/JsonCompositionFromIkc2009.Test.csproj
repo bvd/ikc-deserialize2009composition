@@ -85,26 +85,10 @@
     <None Include="wegstrepert\15441.json" />
     <None Include="wegstrepert\15683.json" />
     <None Include="wegstrepert\16749.json" />
-    <None Include="wegstrepert\25522.json" />
-    <None Include="wegstrepert\27129.json" />
-    <None Include="wegstrepert\29508.json" />
     <None Include="wegstrepert\33410.json" />
     <None Include="wegstrepert\43112.json" />
     <None Include="wegstrepert\56574.json" />
     <None Include="wegstrepert\56692.json" />
-    <None Include="wegstrepert\5967.json" />
-    <None Include="wegstrepert\5968.json" />
-    <None Include="wegstrepert\5969.json" />
-    <None Include="wegstrepert\5970.json" />
-    <None Include="wegstrepert\5971.json" />
-    <None Include="wegstrepert\6028.json" />
-    <None Include="wegstrepert\6033.json" />
-    <None Include="wegstrepert\6592.json" />
-    <None Include="wegstrepert\6733.json" />
-    <None Include="wegstrepert\6734.json" />
-    <None Include="wegstrepert\6735.json" />
-    <None Include="wegstrepert\6901.json" />
-    <None Include="wegstrepert\9944.json" />
     <None Include="sample\16749.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

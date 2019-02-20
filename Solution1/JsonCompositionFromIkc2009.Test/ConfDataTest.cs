@@ -17,7 +17,7 @@ namespace JsonCompositionFromIkc2009.Test
     public class ConfDataTest
     {
         [TestMethod]
-        public void TranslatorEnvironment_Conf_ShouldContainTopLeftButtonText()
+        public void TranslatorConf_ShouldContainTopLeftButtonText()
         {
             var t = Translator("9944.json");
             var c = t.ProjectEvents.Single(x => x is ButtonTextConfigured && (x as ButtonTextConfigured).ButtonPosition == ButtonPosition.Left) as ButtonTextConfigured;
@@ -25,7 +25,7 @@ namespace JsonCompositionFromIkc2009.Test
         }
 
         [TestMethod]
-        public void TranslatorEnvironment_Conf_ShouldContainTopLeftButtonEmptyText()
+        public void TranslatorConf_ShouldContainTopLeftButtonEmptyText()
         {
             var t = Translator("56574.json");
             var c = t.ProjectEvents.Single(x => x is ButtonTextConfigured && (x as ButtonTextConfigured).ButtonPosition == ButtonPosition.Left) as ButtonTextConfigured;
@@ -33,7 +33,7 @@ namespace JsonCompositionFromIkc2009.Test
         }
 
         [TestMethod]
-        public void TranslatorEnvironment_Conf_ButtonBehaviorConfiguredLeft_OpenSessionModule()
+        public void TranslatorConf_ButtonBehaviorConfiguredLeft_OpenSessionModule()
         {
             var t = Translator("9944.json");
             var c = t.ProjectEvents.Single(x => x is ButtonBehaviorConfigured && (x as ButtonBehaviorConfigured).ButtonPosition == ButtonPosition.Left) as ButtonBehaviorConfigured;
@@ -41,7 +41,7 @@ namespace JsonCompositionFromIkc2009.Test
         }
 
         [TestMethod]
-        public void TranslatorEnvironment_Conf_ButtonBehaviorConfiguredLeft_PlayAudioTip()
+        public void TranslatorConf_ButtonBehaviorConfiguredLeft_PlayAudioTip()
         {
             var t = Translator("56574.json");
             var c = t.ProjectEvents.Single(x => x is ButtonBehaviorConfigured && (x as ButtonBehaviorConfigured).ButtonPosition == ButtonPosition.Left) as ButtonBehaviorConfigured;
@@ -49,7 +49,7 @@ namespace JsonCompositionFromIkc2009.Test
         }
 
         [TestMethod]
-        public void TranslatorEnvironment_Conf_ButtonBehaviorConfiguredLeft_PlayPause()
+        public void TranslatorConf_ButtonBehaviorConfiguredLeft_PlayPause()
         {
             var t = Translator("33410.json");
             var c = t.ProjectEvents.Single(x => x is ButtonBehaviorConfigured && (x as ButtonBehaviorConfigured).ButtonPosition == ButtonPosition.Left) as ButtonBehaviorConfigured;
@@ -57,7 +57,7 @@ namespace JsonCompositionFromIkc2009.Test
         }
 
         [TestMethod]
-        public void TranslatorEnvironment_Conf_ButtonModeConfiguredLeft_Button()
+        public void Translator_Conf_ButtonModeConfiguredLeft_Button()
         {
             var t = Translator("9944.json");
             var c = t.ProjectEvents.Single(x => x is ButtonModeConfigured && (x as ButtonModeConfigured).ButtonPosition == ButtonPosition.Left) as ButtonModeConfigured;
@@ -65,14 +65,44 @@ namespace JsonCompositionFromIkc2009.Test
         }
 
         [TestMethod]
-        public void TranslatorEnvironment_Conf_ButtonModeConfiguredLeft_Img()
+        public void Translator_Conf_ButtonModeConfiguredLeft_Img()
         {
             var t = Translator("33410.json");
             var c = t.ProjectEvents.Single(x => x is ButtonModeConfigured && (x as ButtonModeConfigured).ButtonPosition == ButtonPosition.Left) as ButtonModeConfigured;
             Assert.AreEqual(ButtonMode.Img, c.ButtonMode);
         }
 
-        private IkcomponeerData2009ToEventsTranslator __translator;
+        [TestMethod]
+        public void Translator_Conf_SaveButtonVisibility()
+        {
+            var t = Translator("15441.json");
+            var c = t.ProjectEvents.Single(x => x is SaveButtonVisibilityConfigured) as SaveButtonVisibilityConfigured;
+            Assert.IsTrue(c.Visible);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_SaveButtonVisibility_False()
+        {
+            var t = Translator("56692.json");
+            var c = t.ProjectEvents.Single(x => x is SaveButtonVisibilityConfigured) as SaveButtonVisibilityConfigured;
+            Assert.IsFalse(c.Visible);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_TemplateCompositionConfigured()
+        {
+            var t = Translator("56692.json");
+            var c = t.ProjectEvents.Single(x => x is TemplateCompositionConfigured) as TemplateCompositionConfigured;
+            Assert.AreEqual("6028", c.Id);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_LicenseTextConfigured()
+        {
+            var t = Translator("9944.json");
+            var c = t.ProjectEvents.Single(x => x is LicenseTextConfigured ) as LicenseTextConfigured;
+            Assert.AreEqual("Gelicenseerd aan: <br/>Metropole Orkest<br/>", c.Text);
+        }
 
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
         {
@@ -99,8 +129,6 @@ namespace JsonCompositionFromIkc2009.Test
             return t;
         }
 
-        private Xml2CSharp.Composition __compositionContent;
-
         private Xml2CSharp.Composition CompositionContent(Rootobject r)
         {
 
@@ -117,8 +145,6 @@ namespace JsonCompositionFromIkc2009.Test
             return c;
 
         }
-
-        private Rootobject __deserialized;
 
         private Rootobject DeserializedJson(string sampleFile)
         {
