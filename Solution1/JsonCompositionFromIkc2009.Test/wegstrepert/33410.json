@@ -1,7 +1,6 @@
 ﻿{
   
   "conf_override": {
-    "conf_helpVidDialAtStartUp": "0",
     "conf_topLeftButtonText": "",
     "conf_topLeftButtonNote": "play pause",
     "conf_topLeftButtonMode": "img",
