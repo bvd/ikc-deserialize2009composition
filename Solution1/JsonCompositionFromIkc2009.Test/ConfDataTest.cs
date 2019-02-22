@@ -183,6 +183,14 @@ namespace JsonCompositionFromIkc2009.Test
             var c = t.ProjectEvents.Single(x => x is LoggerButtonsHidden);
         }
 
+        [TestMethod]
+        public void Translator_Conf_HideSubparts()
+        {
+            var t = Translator("16749.json");
+            var e = t.ProjectEvents.Single(x => x is SubpartsHidden) as SubpartsHidden;
+            Assert.AreEqual("78,79,80,82", e.SubPartsCommaSeparated);
+        }
+
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
         {
             var t = new IkcomponeerData2009ToEventsTranslator();

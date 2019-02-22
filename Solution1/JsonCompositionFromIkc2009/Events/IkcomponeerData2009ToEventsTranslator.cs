@@ -237,7 +237,7 @@ namespace JsonCompositionFromIkc2009.Events
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_slogan").Select(
                 x => new SloganConfigured { Value = x.Value }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "hide_subparts").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_hide_subparts").Select(
                 x => new SubpartsHidden { SubPartsCommaSeparated = x.Value }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key.Contains("ButtonClass")).Select(
