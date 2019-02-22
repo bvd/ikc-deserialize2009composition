@@ -153,6 +153,35 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.AreEqual(txt, c.Value);
         }
 
+        [TestMethod]
+        public void Translator_Conf_hideScroll_None()
+        {
+            var t = Translator("6033.json");
+            var c = t.ProjectEvents.Any(x => x is ScrollHiddenConfigured);
+            Assert.IsFalse(c);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_hideScroll()
+        {
+            var t = Translator("56692.json");
+            var c = t.ProjectEvents.Single(x => x is ScrollHiddenConfigured);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_LoggerButtonsHidden_None()
+        {
+            var t = Translator("6033.json");
+            var c = t.ProjectEvents.Any(x => x is LoggerButtonsHidden);
+            Assert.IsFalse(c);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_LoggerButtonsHidden()
+        {
+            var t = Translator("56692.json");
+            var c = t.ProjectEvents.Single(x => x is LoggerButtonsHidden);
+        }
 
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
         {

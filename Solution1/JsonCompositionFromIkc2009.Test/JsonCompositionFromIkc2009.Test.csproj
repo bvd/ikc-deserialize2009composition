@@ -87,7 +87,6 @@
     <None Include="wegstrepert\16749.json" />
     <None Include="wegstrepert\33410.json" />
     <None Include="wegstrepert\56574.json" />
-    <None Include="wegstrepert\56692.json" />
     <None Include="sample\16749.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

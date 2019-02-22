@@ -11,8 +11,6 @@
     "conf_centerTracks": "true",
     "conf_turnOffHelpBalloons": "true",
     "conf_turnOffClipButtons": "buttons off",
-    "conf_hideScroll": "true",
-    "conf_showLoggerButtons": "0",
     "conf_topLeftButtonImg": "images/buttonimg/safari-knoppen_L2.jpg",
     "conf_topRightButtonImg": "images/buttonimg/safari-knoppen_R2.jpg",
     "conf_noTrackDrawing": "true",

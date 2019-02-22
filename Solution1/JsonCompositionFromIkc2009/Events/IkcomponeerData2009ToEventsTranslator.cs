@@ -225,8 +225,8 @@ namespace JsonCompositionFromIkc2009.Events
                     ButtonMode = ButtonModeTransformer.Transform(x.Value)
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "showLoggerButtons").Select(
-                x => new LoggerButtonsHidden { Show = x.Value != "0" }));
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_showLoggerButtons").Select(
+                x => new LoggerButtonsHidden()));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_licenseText").Select(
                 x => new LicenseTextConfigured { Text = x.Value }));
@@ -319,11 +319,8 @@ namespace JsonCompositionFromIkc2009.Events
                     Posistion = x.Key.Substring(0, 4) == "topR" ? ButtonPosition.Left : ButtonPosition.Right
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "hideScroll").Select(
-               x => new ScrollHiddenConfigured
-               {
-                   Value = x.Value == "true"
-               }));
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_hideScroll").Select(
+               x => new ScrollHiddenConfigured()));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "sloganFont").Select(
                 x => new SloganFontConfigured
