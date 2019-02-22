@@ -41,6 +41,14 @@ namespace JsonCompositionFromIkc2009.Test
         }
 
         [TestMethod]
+        public void TranslatorConf_ButtonBehaviorConfiguredRight_ClearComposition()
+        {
+            var t = Translator("15441.json");
+            var c = t.ProjectEvents.Single(x => x is ButtonBehaviorConfigured && (x as ButtonBehaviorConfigured).ButtonPosition == ButtonPosition.Right) as ButtonBehaviorConfigured;
+            Assert.AreEqual(IkcNotification.ClearComposition, c.ButtonNote);
+        }
+
+        [TestMethod]
         public void TranslatorConf_ButtonBehaviorConfiguredLeft_PlayAudioTip()
         {
             var t = Translator("56574.json");
@@ -69,6 +77,14 @@ namespace JsonCompositionFromIkc2009.Test
         {
             var t = Translator("33410.json");
             var c = t.ProjectEvents.Single(x => x is ButtonModeConfigured && (x as ButtonModeConfigured).ButtonPosition == ButtonPosition.Left) as ButtonModeConfigured;
+            Assert.AreEqual(ButtonMode.Img, c.ButtonMode);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_ButtonModeConfiguredRight_Img()
+        {
+            var t = Translator("15441.json");
+            var c = t.ProjectEvents.Single(x => x is ButtonModeConfigured && (x as ButtonModeConfigured).ButtonPosition == ButtonPosition.Right) as ButtonModeConfigured;
             Assert.AreEqual(ButtonMode.Img, c.ButtonMode);
         }
 
@@ -189,6 +205,22 @@ namespace JsonCompositionFromIkc2009.Test
             var t = Translator("16749.json");
             var e = t.ProjectEvents.Single(x => x is SubpartsHidden) as SubpartsHidden;
             Assert.AreEqual("78,79,80,82", e.SubPartsCommaSeparated);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_ButtonClassConfigured_Left_KarolaRondje()
+        {
+            var t = Translator("15683.json");
+            var e = t.ProjectEvents.Single(x => x is ButtonClassConfigured && (x as ButtonClassConfigured).ButtonPosition == ButtonPosition.Left) as ButtonClassConfigured;
+            Assert.AreEqual(ButtonClass.KarolaRondje, e.ButtonClass);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_ButtonClassConfigured_Right_KarolaRondje()
+        {
+            var t = Translator("33410.json");
+            var e = t.ProjectEvents.Single(x => x is ButtonClassConfigured && (x as ButtonClassConfigured).ButtonPosition == ButtonPosition.Right) as ButtonClassConfigured;
+            Assert.AreEqual(ButtonClass.KarolaRondje, e.ButtonClass);
         }
 
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)

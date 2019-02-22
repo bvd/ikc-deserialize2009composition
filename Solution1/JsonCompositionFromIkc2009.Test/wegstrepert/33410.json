@@ -3,11 +3,7 @@
   "conf_override": {
     "conf_centerTracks": "true",
     "conf_composition_playmode": "upDown",
-    "conf_topLeftButtonClass": "Karola.rondje",
-    "conf_topRightButtonMode": "img",
-    "conf_topRightButtonNote": "clear composition",
     "conf_topRightButtonText": "",
-    "conf_topRightButtonClass": "Karola.rondje",
     "conf_turnOffHelpBalloons": "true",
     "conf_turnOffClipButtons": "buttons off",
     "conf_sloganFont": "MARSNEVENEKSK",

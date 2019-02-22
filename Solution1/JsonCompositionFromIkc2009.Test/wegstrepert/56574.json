@@ -1,10 +1,6 @@
 ﻿{
   "conf_override": {
-    "conf_topLeftButtonClass": "Karola.rondje",
-    "conf_topRightButtonMode": "img",
-    "conf_topRightButtonNote": "clear composition",
     "conf_topRightButtonText": "",
-    "conf_topRightButtonClass": "Karola.rondje",
     "conf_audiotips": "1.MP3,2.MP3,3.MP3,4.MP3",
     "conf_preview_playbuttonmode": "upDown",
     "conf_composition_playmode": "upDown",
