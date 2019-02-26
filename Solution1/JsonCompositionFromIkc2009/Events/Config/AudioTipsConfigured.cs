@@ -4,6 +4,6 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class AudioTipsConfigured : TableEntity, IConfig
     {
-        public string AudioTips { get; set; }
+        public string AudioTipsCommaSeperated { get; set; }
     }
 }

@@ -1,11 +1,6 @@
 ﻿{
   
   "conf_override": {
-    "conf_centerTracks": "true",
-    "conf_composition_playmode": "upDown",
-    "conf_topRightButtonText": "",
-    "conf_turnOffHelpBalloons": "true",
-    "conf_turnOffClipButtons": "buttons off",
     "conf_sloganFont": "MARSNEVENEKSK",
     "conf_sloganLineHeigt": "32",
     "conf_sloganFontSize": "38",
@@ -17,8 +12,6 @@
     "conf_subpartsTopMargin": "30",
     "conf_noBorderClips": "true",
     "conf_noGrid": "true",
-    "conf_topLeftButtonImg": "images/buttonimg/losseGROTEKNOPPEN2.png",
-    "conf_topRightButtonImg": "images/buttonimg/losseGROTEKNOPPEN.png",
     "conf_topRightButtonColor1": "#000000",
     "conf_topRightButtonColor2": "#000000",
     "conf_topLeftButtonColor2": "#000000",

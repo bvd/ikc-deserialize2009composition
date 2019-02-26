@@ -246,56 +246,54 @@ namespace JsonCompositionFromIkc2009.Events
                     ButtonClass = ButtonClass.KarolaRondje
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "audiotips").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_audiotips").Select(
                 x => new AudioTipsConfigured {
-                    AudioTips = x.Value
+                    AudioTipsCommaSeperated = x.Value
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "preview_playbuttonmode").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_preview_playbuttonmode").Select(
                 x => new PreviewPlayButtonModeConfigured
                 {
                     Value = x.Value == "upDown" ? PreviewPlayButtonMode.UpDown : PreviewPlayButtonMode.None
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "composition_playmode").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_composition_playmode").Select(
                 x => new CompositionPlayButtonModeConfigured
                 {
                     Value = x.Value == "upDown" ? CompositionPlayButtonMode.UpDown : CompositionPlayButtonMode.None
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "centerTracks").Select(
-               x => new TracksCentered
-               {
-                   Value = x.Value == "true" 
-               }));
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_centerTracks").Select(
+               x => new TracksCentered()));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "turnOffHelpBalloons").Select(
-               x => new HelpBalloonsTurnedOff
-               {
-                   Value = x.Value == "true"
-               }));
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_turnOffHelpBalloons").Select(
+               x => new HelpBalloonsTurnedOff()));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "turnOffClipButtons").Select(
-               x => new ClipButtonsTurnedOff
-               {
-                   Value = x.Value == "buttons off"
-               }));
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_turnOffClipButtons").Select(
+               x => new ClipButtonsTurnedOff()));
 
             _projectEvents.AddRange(root.conf_override.Where(
-                x => 
-                new List<string> { "trackColorA", "trackColorB" }
-                .Contains(x.Key))
-                .Select(
-                    x => new TrackColorDefined
-                    {
-                        Value = x.Value 
-                    }
-             ));
+                x => x.Key == "conf_trackColorA").Select(x => new TrackColorDefined
+                {
+                    Value = x.Value
+                }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "tracksBackgroundImg").Select(
+            _projectEvents.AddRange(root.conf_override.Where(
+                x => x.Key == "conf_trackColorB").Select(x => new TrackColorDefined
+                {
+                    Value = x.Value
+                }));
+
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_tracksBackgroundImg").Select(
                 x => new TracksBackgroundConfigured
                 {
                     BackgroundImage = x.Value
+                }));
+
+            _projectEvents.AddRange(root.environment.projectRules.Where(x => x.type == "trackHeight").Select(
+                x => new TrackHeightConfigured
+                {
+                    TrackHeight = (int)x.value
                 }));
 
 
@@ -305,18 +303,23 @@ namespace JsonCompositionFromIkc2009.Events
                     NumberOfTracks =(int) x.value
                 }));
 
-            _projectEvents.AddRange(root.environment.projectRules.Where(x => x.type == "trackHeight").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_numTracks").Select(
+                x => new NumberOfTracksConfigured {
+                    NumberOfTracks = int.Parse(x.Value)
+                }));
+
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_trackHeight").Select(
                 x => new TrackHeightConfigured
                 {
-                    TrackHeight = (int)x.value
+                    TrackHeight = int.Parse(x.Value)
                 }));
 
             _projectEvents.AddRange(root.conf_override.Where(
-                x => new List<string> { "topRightButtonImg", "topLeftButtonImg" }.Contains(x.Key))
+                x => x.Key.Contains("ButtonImg"))
                 .Select(x => new ButtonImgConfigured
                 {
                     Img = x.Value,
-                    Posistion = x.Key.Substring(0, 4) == "topR" ? ButtonPosition.Left : ButtonPosition.Right
+                    Posistion = x.Key.Contains("topRight") ? ButtonPosition.Right : ButtonPosition.Left
                 }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_hideScroll").Select(

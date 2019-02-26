@@ -33,6 +33,14 @@ namespace JsonCompositionFromIkc2009.Test
         }
 
         [TestMethod]
+        public void TranslatorConf_ShouldContainTopRightButtonEmptyText()
+        {
+            var t = Translator("15441.json");
+            var c = t.ProjectEvents.Single(x => x is ButtonTextConfigured && (x as ButtonTextConfigured).ButtonPosition == ButtonPosition.Right) as ButtonTextConfigured;
+            Assert.AreEqual("", c.ButtonText);
+        }
+
+        [TestMethod]
         public void TranslatorConf_ButtonBehaviorConfiguredLeft_OpenSessionModule()
         {
             var t = Translator("9944.json");
@@ -223,6 +231,108 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.AreEqual(ButtonClass.KarolaRondje, e.ButtonClass);
         }
 
+        [TestMethod]
+        public void Translator_Conf_AudioTipsConfigured()
+        {
+            var t = Translator("15441.json");
+            var e = t.ProjectEvents.Single(x => x is AudioTipsConfigured) as AudioTipsConfigured;
+            Assert.AreEqual("1.MP3,2.MP3,3.MP3,4.MP3", e.AudioTipsCommaSeperated);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_PreviewPlayButtonModeConfigured()
+        {
+            var t = Translator("15441.json");
+            var e = t.ProjectEvents.Single(x => x is PreviewPlayButtonModeConfigured) as PreviewPlayButtonModeConfigured;
+            Assert.AreEqual(PreviewPlayButtonMode.UpDown, e.Value);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_CompositionPlayButtonModeConfigured()
+        {
+            var t = Translator("15441.json");
+            var e = t.ProjectEvents.Single(x => x is CompositionPlayButtonModeConfigured) as CompositionPlayButtonModeConfigured;
+            Assert.AreEqual(CompositionPlayButtonMode.UpDown, e.Value);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_TracksCentered()
+        {
+            var t = Translator("15441.json");
+            var e = t.ProjectEvents.Single(x => x is TracksCentered) as TracksCentered;
+        }
+
+        [TestMethod]
+        public void Translator_Conf_HelpBalloonsTurnedOff()
+        {
+            var t = Translator("15441.json");
+            var e = t.ProjectEvents.Single(x => x is HelpBalloonsTurnedOff) as HelpBalloonsTurnedOff;
+        }
+
+        [TestMethod]
+        public void Translator_Conf_ClipButtonsTurnedOff()
+        {
+            var t = Translator("15441.json");
+            var e = t.ProjectEvents.Single(x => x is ClipButtonsTurnedOff) as ClipButtonsTurnedOff;
+        }
+
+        [TestMethod]
+        public void Translator_Conf_ButtonImgConfiguredRight()
+        {
+            var t = Translator("15441.json");
+            var e = t.ProjectEvents.Single(x => x is ButtonImgConfigured && (x as ButtonImgConfigured).Posistion == ButtonPosition.Right) as ButtonImgConfigured;
+            Assert.AreEqual("images/buttonimg/knoprechtsikdroom.jpg", e.Img);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_ButtonImgConfiguredLeft()
+        {
+            var t = Translator("15441.json");
+            var e = t.ProjectEvents.Single(x => x is ButtonImgConfigured && (x as ButtonImgConfigured).Posistion == ButtonPosition.Left) as ButtonImgConfigured;
+            Assert.AreEqual("images/buttonimg/knoplinksikdroom.jpg", e.Img);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_TracksBackgroundConfigured()
+        {
+            var t = Translator("15441.json");
+            var e = t.ProjectEvents.Single(x => x is TracksBackgroundConfigured) as TracksBackgroundConfigured;
+            Assert.AreEqual("images/tracks/toolbarikdroom.jpg", e.BackgroundImage);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_TracksColorsConfigured()
+        {
+            var t = Translator("15683.json");
+            var e = t.ProjectEvents.Where(x => x is TrackColorDefined);
+            var first = e.ElementAt(0) as TrackColorDefined;
+            var second = e.ElementAt(1) as TrackColorDefined;
+            Assert.AreEqual("#E5FFE5", first.Value);
+            Assert.AreEqual("#D0D0D0", second.Value);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_NumberOfTracksConfigured()
+        {
+            var t = Translator("15683.json");
+            var e = t.ProjectEvents.Where(x => x is NumberOfTracksConfigured);
+            var first = e.ElementAt(0) as NumberOfTracksConfigured;
+            var second = e.ElementAt(1) as NumberOfTracksConfigured;
+            Assert.AreEqual(2, first.NumberOfTracks);
+            Assert.AreEqual(3, second.NumberOfTracks);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_TrackHeightConfigured()
+        {
+            var t = Translator("15683.json");
+            var e = t.ProjectEvents.Where(x => x is TrackHeightConfigured);
+            var first = e.ElementAt(0) as TrackHeightConfigured;
+            var second = e.ElementAt(1) as TrackHeightConfigured;
+            Assert.AreEqual(105, first.TrackHeight);
+            Assert.AreEqual(70, second.TrackHeight);
+        }
+        
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
         {
             var t = new IkcomponeerData2009ToEventsTranslator();

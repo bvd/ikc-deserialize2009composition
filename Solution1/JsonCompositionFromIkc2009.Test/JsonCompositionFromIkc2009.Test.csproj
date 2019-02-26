@@ -82,8 +82,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="wegstrepert\15441.json" />
-    <None Include="wegstrepert\15683.json" />
     <None Include="wegstrepert\33410.json" />
     <None Include="wegstrepert\56574.json" />
     <None Include="sample\16749.json">
