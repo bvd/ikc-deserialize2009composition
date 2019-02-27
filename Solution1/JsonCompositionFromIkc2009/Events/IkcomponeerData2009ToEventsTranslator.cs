@@ -349,7 +349,7 @@ namespace JsonCompositionFromIkc2009.Events
                     Color = x.Value
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "noTrackDrawing").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_noTrackDrawing").Select(
                 x => new TrackDrawingTypeConfigured
                 {
                     TrackDrawingType = x.Value == "true" ? TrackDrawingType.Hidden : TrackDrawingType.Default
@@ -361,7 +361,7 @@ namespace JsonCompositionFromIkc2009.Events
                     MagicDelay = int.Parse(x.Value)
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "playheadCircle").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_playheadCircle").Select(
                 x => new PlayHeadTypeConfigured
                 {
                     PlayHeadType = x.Value == "false" ? PlayHeadType.Hidden : PlayHeadType.Default
@@ -373,7 +373,7 @@ namespace JsonCompositionFromIkc2009.Events
                     Color = x.Value
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "subpartsTopMargin").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_subpartsTopMargin").Select(
                 x => new TopMarginForSubpartsConfigured
                 {
                     TopMargin = int.Parse(x.Value)
@@ -385,7 +385,7 @@ namespace JsonCompositionFromIkc2009.Events
                     ClipDrawingType = x.Value == "true" ? ClipDrawingType.NoBorders : ClipDrawingType.Default
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "noGrid").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_noGrid").Select(
                 x => new GridDrawingTypeConfigured
                 {
                     GridDrawingType = x.Value == "true" ? GridDrawingType.NoBorders : GridDrawingType.Default
@@ -399,7 +399,7 @@ namespace JsonCompositionFromIkc2009.Events
                     ButtonColor = x.Value
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "bgImg").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_bgImg").Select(
                 x => new BackgroundImageConfigured
                 {
                     BackgroundImage = x.Value
@@ -412,11 +412,8 @@ namespace JsonCompositionFromIkc2009.Events
                 }));
 
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "hideTrackBackground").Select(
-                x => new TrackBackgroundHidden
-                {
-                    Hidden = true
-                }));
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_hideTrackBackground").Select(
+                x => new TrackBackgroundHidden()));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_displayMenuRight").Select(
                 x => new MenuDisplayHiddenRight()          

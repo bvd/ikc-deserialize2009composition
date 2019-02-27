@@ -5,19 +5,13 @@
     "conf_sloganLineHeigt": "32",
     "conf_sloganFontSize": "38",
     "conf_sloganColor": "FF0000",
-    "conf_noTrackDrawing": "true",
     "conf_magicDelay": "0",
-    "conf_playheadCircle": "false",
     "conf_lineColor": "#FFFFFF",
-    "conf_subpartsTopMargin": "30",
     "conf_noBorderClips": "true",
-    "conf_noGrid": "true",
     "conf_topRightButtonColor1": "#000000",
     "conf_topRightButtonColor2": "#000000",
     "conf_topLeftButtonColor2": "#000000",
     "conf_topLeftButtonColor1": "#000000",
     "conf_maskButtonsOff": "true",
-    "conf_bgImg": "images/bgimg/qual.jpg",
-    "conf_hideTrackBackground": "true"
   }
 }

@@ -332,7 +332,58 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.AreEqual(105, first.TrackHeight);
             Assert.AreEqual(70, second.TrackHeight);
         }
-        
+
+        [TestMethod]
+        public void Translator_Conf_TrackDrawingTypeConfigured()
+        {
+                var t = Translator("33410.json");
+                var e = t.ProjectEvents.Single(x => x is TrackDrawingTypeConfigured) as TrackDrawingTypeConfigured;
+                Assert.AreEqual(TrackDrawingType.Hidden, e.TrackDrawingType);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_PlayHeadTypeConfigured()
+        {
+            var t = Translator("56574.json");
+            var e = t.ProjectEvents.Single(x => x is PlayHeadTypeConfigured) as PlayHeadTypeConfigured;
+            Assert.AreEqual(PlayHeadType.Hidden, e.PlayHeadType);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_GridDrawingTypeConfigured()
+        {
+            var t = Translator("56574.json");
+            var e = t.ProjectEvents.Single(x => x is GridDrawingTypeConfigured) as GridDrawingTypeConfigured;
+            Assert.AreEqual(GridDrawingType.NoBorders, e.GridDrawingType);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_BackgroundImageConfigured()
+        {
+            var t = Translator("56574.json");
+            var e = t.ProjectEvents.Single(x => x is BackgroundImageConfigured) as BackgroundImageConfigured;
+            Assert.AreEqual("images/bgimg/zzzzzgeel.jpg", e.BackgroundImage);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_TrackBackgroundHidden()
+        {
+            var t = Translator("56574.json");
+            t.ProjectEvents.Single(x => x is TrackBackgroundHidden);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_TopMarginForSubpartsConfigured()
+        {
+            var t = Translator("56574.json");
+            var e = t.ProjectEvents.Single(x => x is TopMarginForSubpartsConfigured) as TopMarginForSubpartsConfigured;
+            Assert.AreEqual(45, e.TopMargin);
+        }
+
+
+
+
+
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
         {
             var t = new IkcomponeerData2009ToEventsTranslator();
