@@ -9,5 +9,12 @@ namespace JsonCompositionFromIkc2009.Events.Composition
 {
     public class ClearCompositionEvent : TableEntity, IComposition
     {
+        public string Type
+        {
+            get
+            {
+                return this.GetType().AssemblyQualifiedName;
+            }
+        }
     }
 }

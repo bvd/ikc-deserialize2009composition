@@ -4,6 +4,13 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class MagicDelayConfigured : TableEntity, IConfig
     {
+        public string Type
+        {
+            get
+            {
+                return this.GetType().AssemblyQualifiedName;
+            }
+        }
         public int MagicDelay { get; set; }
     }
 }

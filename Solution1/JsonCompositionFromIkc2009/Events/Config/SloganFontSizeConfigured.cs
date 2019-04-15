@@ -4,6 +4,13 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class SloganFontSizeConfigured : TableEntity, IConfig
     {
-        public int Heiht { get; set; }
+        public string Type
+        {
+            get
+            {
+                return this.GetType().AssemblyQualifiedName;
+            }
+        }
+        public int FontSize { get; set; }
     }
 }

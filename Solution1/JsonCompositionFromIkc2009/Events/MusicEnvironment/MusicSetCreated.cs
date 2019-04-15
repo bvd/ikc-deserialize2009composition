@@ -4,6 +4,13 @@ namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
 {
     public class MusicSetCreated : TableEntity, IMusicEnvironmentEvent
     {
+        public string Type
+        {
+            get
+            {
+                return this.GetType().AssemblyQualifiedName;
+            }
+        }
         public string id { get; set; }
         public string name { get; set; }
         public string description { get; set; }

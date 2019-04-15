@@ -280,7 +280,7 @@ namespace JsonCompositionFromIkc2009.Test
         public void Translator_Conf_ButtonImgConfiguredRight()
         {
             var t = Translator("15441.json");
-            var e = t.ProjectEvents.Single(x => x is ButtonImgConfigured && (x as ButtonImgConfigured).Posistion == ButtonPosition.Right) as ButtonImgConfigured;
+            var e = t.ProjectEvents.Single(x => x is ButtonImgConfigured && (x as ButtonImgConfigured).ButtonPosition == ButtonPosition.Right) as ButtonImgConfigured;
             Assert.AreEqual("images/buttonimg/knoprechtsikdroom.jpg", e.Img);
         }
 
@@ -288,7 +288,7 @@ namespace JsonCompositionFromIkc2009.Test
         public void Translator_Conf_ButtonImgConfiguredLeft()
         {
             var t = Translator("15441.json");
-            var e = t.ProjectEvents.Single(x => x is ButtonImgConfigured && (x as ButtonImgConfigured).Posistion == ButtonPosition.Left) as ButtonImgConfigured;
+            var e = t.ProjectEvents.Single(x => x is ButtonImgConfigured && (x as ButtonImgConfigured).ButtonPosition == ButtonPosition.Left) as ButtonImgConfigured;
             Assert.AreEqual("images/buttonimg/knoplinksikdroom.jpg", e.Img);
         }
 
@@ -380,9 +380,87 @@ namespace JsonCompositionFromIkc2009.Test
             Assert.AreEqual(45, e.TopMargin);
         }
 
+        [TestMethod]
+        public void Translator_Conf_SloganFontConfigured()
+        {
+            var t = Translator("33410.json");
+            var e = t.ProjectEvents.Single(x => x is SloganFontConfigured) as SloganFontConfigured;
+            Assert.AreEqual("MARSNEVENEKSK", e.Font);
+        }
 
+        [TestMethod]
+        public void Translator_Conf_SloganLineHeightConfigured()
+        {
+            var t = Translator("33410.json");
+            var e = t.ProjectEvents.Single(x => x is SloganLineHeightConfigured) as SloganLineHeightConfigured;
+            Assert.AreEqual(32, e.Height);
+        }
 
+        [TestMethod]
+        public void Translator_Conf_SloganFontSizeConfigured()
+        {
+            var t = Translator("33410.json");
+            var e = t.ProjectEvents.Single(x => x is SloganFontSizeConfigured) as SloganFontSizeConfigured;
+            Assert.AreEqual(38, e.FontSize);
+        }
 
+        [TestMethod]
+        public void Translator_Conf_SloganFontColorConfigured()
+        {
+            var t = Translator("33410.json");
+            var e = t.ProjectEvents.Single(x => x is SloganFontColorConfigured) as SloganFontColorConfigured;
+            Assert.AreEqual("FF0000", e.Color);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_MagicDelayConfigured()
+        {
+            var t = Translator("33410.json");
+            var e = t.ProjectEvents.Single(x => x is MagicDelayConfigured) as MagicDelayConfigured;
+            Assert.AreEqual(0, e.MagicDelay);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_PlayHeadLineColorConfigured()
+        {
+            var t = Translator("33410.json");
+            var e = t.ProjectEvents.Single(x => x is PlayHeadLineColorConfigured) as PlayHeadLineColorConfigured;
+            Assert.AreEqual("#FFFFFF", e.Color);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_ClipDrawingTypeConfigured()
+        {
+            var t = Translator("33410.json");
+            var e = t.ProjectEvents.Single(x => x is ClipDrawingTypeConfigured) as ClipDrawingTypeConfigured;
+            Assert.AreEqual(ClipDrawingType.NoBorders, e.ClipDrawingType);
+        }
+
+        [TestMethod]
+        public void Translator_Conf_ButtonColorConfigured()
+        {
+            var t = Translator("33410.json");
+            var topLeftButtonColor1 = t.ProjectEvents.Single(
+                x => x is ButtonColorConfigured
+                && (x as ButtonColorConfigured).Order == 1
+                && (x as ButtonColorConfigured).ButtonPosition == ButtonPosition.Left) as ButtonColorConfigured;
+            var topLeftButtonColor2 = t.ProjectEvents.Single(
+                x => x is ButtonColorConfigured
+                && (x as ButtonColorConfigured).Order == 2
+                && (x as ButtonColorConfigured).ButtonPosition == ButtonPosition.Left) as ButtonColorConfigured;
+            var topRightButtonColor1 = t.ProjectEvents.Single(
+                x => x is ButtonColorConfigured
+                && (x as ButtonColorConfigured).Order == 1
+                && (x as ButtonColorConfigured).ButtonPosition == ButtonPosition.Right) as ButtonColorConfigured;
+            var topRightButtonColor2 = t.ProjectEvents.Single(
+                x => x is ButtonColorConfigured
+                && (x as ButtonColorConfigured).Order == 2
+                && (x as ButtonColorConfigured).ButtonPosition == ButtonPosition.Right) as ButtonColorConfigured;
+            Assert.AreEqual("#000000", topLeftButtonColor1.ButtonColor);
+            Assert.AreEqual("#000000", topLeftButtonColor2.ButtonColor);
+            Assert.AreEqual("#000000", topRightButtonColor1.ButtonColor);
+            Assert.AreEqual("#000000", topRightButtonColor2.ButtonColor);
+        }
 
         private IkcomponeerData2009ToEventsTranslator Translator(string sampleFile)
         {

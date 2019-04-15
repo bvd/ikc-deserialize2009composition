@@ -4,6 +4,13 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class QuantizeGridChange : TableEntity, IConfig
     {
+        public string Type
+        {
+            get
+            {
+                return this.GetType().AssemblyQualifiedName;
+            }
+        }
         public float Numerator { get; set; }
         public float Denominator { get; set; }
     }

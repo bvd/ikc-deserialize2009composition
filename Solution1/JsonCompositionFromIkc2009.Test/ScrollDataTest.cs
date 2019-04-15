@@ -23,6 +23,13 @@ namespace JsonCompositionFromIkc2009.Test
         }
 
         [TestMethod]
+        public void Translator_Should_Serialize()
+        {
+            var t = Translator("5969.json");
+            var s = t.ToString();
+        }
+
+        [TestMethod]
         public void TranslatorEnvironment_Scroll_ShouldHaveCorrectItemsInCorrectOrder()
         {
             var t = Translator("6901.txt");

@@ -4,5 +4,12 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class HelpBalloonsTurnedOff : TableEntity, IConfig
     {
+        public string Type
+        {
+            get
+            {
+                return this.GetType().AssemblyQualifiedName;
+            }
+        }
     }
 }

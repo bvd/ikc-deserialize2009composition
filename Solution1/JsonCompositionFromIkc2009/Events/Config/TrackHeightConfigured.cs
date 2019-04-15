@@ -4,6 +4,13 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class TrackHeightConfigured : TableEntity, IConfig
     {
+        public string Type
+        {
+            get
+            {
+                return this.GetType().AssemblyQualifiedName;
+            }
+        }
         public int TrackHeight { get; set; }
     }
 }

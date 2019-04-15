@@ -9,6 +9,7 @@ using JsonCompositionFromIkc2009.Events.Config;
 using JsonCompositionFromIkc2009.Events.MusicEnvironment;
 using JsonCompositionFromIkc2009.Events.Scroll;
 using Microsoft.WindowsAzure.Storage.Table;
+using Newtonsoft.Json;
 
 namespace JsonCompositionFromIkc2009.Events
 {
@@ -22,6 +23,15 @@ namespace JsonCompositionFromIkc2009.Events
     {
         private readonly List<ITableEntity> _environmentEvents = new List<ITableEntity>();
 
+        public override string ToString()
+        {
+            List<ITableEntity> all = new List<ITableEntity>();
+            all.AddRange(ScrollEvents);
+            all.AddRange(ProjectEvents);
+            all.AddRange(EnvironmentEvents);
+            all.AddRange(CompositionEvents);
+            return JsonConvert.SerializeObject(all);
+        }
         public List<ITableEntity> EnvironmentEvents
         {
             get
@@ -319,31 +329,31 @@ namespace JsonCompositionFromIkc2009.Events
                 .Select(x => new ButtonImgConfigured
                 {
                     Img = x.Value,
-                    Posistion = x.Key.Contains("topRight") ? ButtonPosition.Right : ButtonPosition.Left
+                    ButtonPosition = x.Key.Contains("topRight") ? ButtonPosition.Right : ButtonPosition.Left
                 }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_hideScroll").Select(
                x => new ScrollHiddenConfigured()));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "sloganFont").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_sloganFont").Select(
                 x => new SloganFontConfigured
                 {
                     Font = x.Value
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "sloganLineHeigt").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_sloganLineHeigt").Select(
                 x => new SloganLineHeightConfigured
                 {
-                    Heiht = int.Parse(x.Value)
+                    Height = int.Parse(x.Value)
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "sloganFontSize").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_sloganFontSize").Select(
                 x => new SloganFontSizeConfigured
                 {
-                    Heiht = int.Parse(x.Value)
+                    FontSize = int.Parse(x.Value)
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "sloganColor").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_sloganColor").Select(
                 x => new SloganFontColorConfigured
                 {
                     Color = x.Value
@@ -355,7 +365,7 @@ namespace JsonCompositionFromIkc2009.Events
                     TrackDrawingType = x.Value == "true" ? TrackDrawingType.Hidden : TrackDrawingType.Default
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "magicDelay").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_magicDelay").Select(
                 x => new MagicDelayConfigured
                 {
                     MagicDelay = int.Parse(x.Value)
@@ -367,7 +377,7 @@ namespace JsonCompositionFromIkc2009.Events
                     PlayHeadType = x.Value == "false" ? PlayHeadType.Hidden : PlayHeadType.Default
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "lineColor").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_lineColor").Select(
                 x => new PlayHeadLineColorConfigured
                 {
                     Color = x.Value
@@ -379,7 +389,7 @@ namespace JsonCompositionFromIkc2009.Events
                     TopMargin = int.Parse(x.Value)
                 }));
 
-            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "noBorderClips").Select(
+            _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_noBorderClips").Select(
                 x => new ClipDrawingTypeConfigured
                 {
                     ClipDrawingType = x.Value == "true" ? ClipDrawingType.NoBorders : ClipDrawingType.Default
