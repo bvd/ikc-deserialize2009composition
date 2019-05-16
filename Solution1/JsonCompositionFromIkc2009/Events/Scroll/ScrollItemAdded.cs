@@ -10,6 +10,9 @@ namespace JsonCompositionFromIkc2009.Events.Scroll
             {
                 return this.GetType().AssemblyQualifiedName;
             }
+            set
+            {
+            }
         }
         public string Name { get; set; }
         public int Index { get; set; }

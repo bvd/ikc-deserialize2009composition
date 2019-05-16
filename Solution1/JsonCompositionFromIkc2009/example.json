@@ -46,7 +46,7 @@
         "description": "wat is de waarde van een beat",
         "value": "4"
       },
-      { 
+      {
         "id": "5",
         "type": "screenWidthInMeasures",
         "description": "hoeveel maten zijn tegelijk zichtbaar",

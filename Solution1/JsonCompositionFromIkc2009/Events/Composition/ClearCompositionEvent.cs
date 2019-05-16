@@ -15,6 +15,9 @@ namespace JsonCompositionFromIkc2009.Events.Composition
             {
                 return this.GetType().AssemblyQualifiedName;
             }
+            set
+            {
+            }
         }
     }
 }

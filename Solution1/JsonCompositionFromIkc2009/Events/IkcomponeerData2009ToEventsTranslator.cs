@@ -136,7 +136,7 @@ namespace JsonCompositionFromIkc2009.Events
 
             var orderSuitableToSortOn =
                 root.environment.projectMaterial.parts.Count == root.environment.projectMaterial.parts.GroupBy(x => x.Value.order).Count();
-            
+
             foreach (var partKVP in root.environment.projectMaterial.parts)
             {
                 var part = partKVP.Value;
@@ -184,8 +184,8 @@ namespace JsonCompositionFromIkc2009.Events
             }
 
             var musicPartCreatedEvents = from x in MusicPartCreatedSortList
-                                        orderby x.Key.Length, x.Key
-                       select x;
+                                         orderby x.Key.Length, x.Key
+                                         select x;
 
 
 
@@ -201,7 +201,7 @@ namespace JsonCompositionFromIkc2009.Events
                 {
                     var clip = musicClipCreatedEvent.Value as MusicClipCreated;
                     var sort = musicClipCreatedEvent.Key;
-                     _environmentEvents.Add(musicClipCreatedEvent.Value);
+                    _environmentEvents.Add(musicClipCreatedEvent.Value);
                 }
             }
 
@@ -209,7 +209,8 @@ namespace JsonCompositionFromIkc2009.Events
                 x => new SaveButtonVisibilityConfigured { Visible = x.Value == "1" }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key.Contains("ButtonText")).Select(
-                x => new ButtonTextConfigured {
+                x => new ButtonTextConfigured
+                {
                     ButtonPosition = x.Key == "conf_topLeftButtonText" ? ButtonPosition.Left : ButtonPosition.Right,
                     ButtonText = x.Value
                 }));
@@ -251,13 +252,15 @@ namespace JsonCompositionFromIkc2009.Events
                 x => new SubpartsHidden { SubPartsCommaSeparated = x.Value }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key.Contains("ButtonClass")).Select(
-                x => new ButtonClassConfigured {
+                x => new ButtonClassConfigured
+                {
                     ButtonPosition = x.Key == "conf_topLeftButtonClass" ? ButtonPosition.Left : ButtonPosition.Right,
                     ButtonClass = ButtonClass.KarolaRondje
                 }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_audiotips").Select(
-                x => new AudioTipsConfigured {
+                x => new AudioTipsConfigured
+                {
                     AudioTipsCommaSeperated = x.Value
                 }));
 
@@ -310,11 +313,12 @@ namespace JsonCompositionFromIkc2009.Events
             _projectEvents.AddRange(root.environment.projectRules.Where(x => x.type == "numTracks").Select(
                 x => new NumberOfTracksConfigured
                 {
-                    NumberOfTracks =(int) x.value
+                    NumberOfTracks = (int)x.value
                 }));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_numTracks").Select(
-                x => new NumberOfTracksConfigured {
+                x => new NumberOfTracksConfigured
+                {
                     NumberOfTracks = int.Parse(x.Value)
                 }));
 
@@ -426,14 +430,15 @@ namespace JsonCompositionFromIkc2009.Events
                 x => new TrackBackgroundHidden()));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_displayMenuRight").Select(
-                x => new MenuDisplayHiddenRight()          
+                x => new MenuDisplayHiddenRight()
             ));
 
             _projectEvents.AddRange(root.conf_override.Where(x => x.Key == "conf_displayMenuLeft").Select(
                 x => new MenuDisplayHiddenLeft()
             ));
 
-            _scrollEvents.AddRange(root.scrollitems.OrderBy(x => x.order).Select(x => new ScrollItemAdded {
+            _scrollEvents.AddRange(root.scrollitems.OrderBy(x => x.order).Select(x => new ScrollItemAdded
+            {
                 Name = x.name,
                 Index = x.order,
                 Id = x.id.ToString()
@@ -442,7 +447,8 @@ namespace JsonCompositionFromIkc2009.Events
             _compositionEvents.Add(new ClearCompositionEvent());
 
             _compositionEvents.Add(
-                new CompositionCreated {
+                new CompositionCreated
+                {
                     Conf = root.conf_identifier,
                     Scroll = root.scrollitems_identifier,
                     Environment = root.environment_identifier,
@@ -456,7 +462,8 @@ namespace JsonCompositionFromIkc2009.Events
 
         public void TranslateComposition(Xml2CSharp.Composition composition)
         {
-            _compositionEvents.AddRange(composition.Track.SelectMany(x => x.Event.Select(e => new EventAddedToTrack {
+            _compositionEvents.AddRange(composition.Track.SelectMany(x => x.Event.Select(e => new EventAddedToTrack
+            {
                 Track = x.Id,
                 Index = e.Id,
                 Start = e.StartTime,

@@ -10,6 +10,9 @@ namespace JsonCompositionFromIkc2009.Events.Composition
             {
                 return this.GetType().AssemblyQualifiedName;
             }
+            set
+            {
+            }
         }
         public int Track { get; set; }
         public int Index { get; set; }

@@ -10,6 +10,9 @@ namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
             {
                 return this.GetType().AssemblyQualifiedName;
             }
+            set
+            {
+            }
         }
         public float BpmTempo { get; set; }
     }

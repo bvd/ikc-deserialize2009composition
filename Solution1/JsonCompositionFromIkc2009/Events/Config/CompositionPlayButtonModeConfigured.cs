@@ -12,6 +12,9 @@ namespace JsonCompositionFromIkc2009.Events.Config
             {
                 return this.GetType().AssemblyQualifiedName;
             }
+            set
+            {
+            }
         }
         [JsonConverter(typeof(StringEnumConverter))]
         public CompositionPlayButtonMode Value { get; set; }

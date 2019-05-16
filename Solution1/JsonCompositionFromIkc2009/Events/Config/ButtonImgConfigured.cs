@@ -12,6 +12,9 @@ namespace JsonCompositionFromIkc2009.Events.Config
             {
                 return this.GetType().AssemblyQualifiedName;
             }
+            set
+            {
+            }
         }
         public string Img { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]

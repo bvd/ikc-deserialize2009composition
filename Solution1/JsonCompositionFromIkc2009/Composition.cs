@@ -14,9 +14,9 @@ namespace JsonCompositionFromIkc2009.TableStorage
         public string Scroll { get; set; }
         public string Config { get; set; }
         public Composition(
-            string composition_identifier, 
-            string environment_identifier, 
-            string scroll_identifier, 
+            string composition_identifier,
+            string environment_identifier,
+            string scroll_identifier,
             string config_identifier)
         {
             this.PartitionKey = composition_identifier;

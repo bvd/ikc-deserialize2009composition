@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
 {
-    public class MusicClipCreated: TableEntity, IMusicEnvironmentEvent
+    public class MusicClipCreated : TableEntity, IMusicEnvironmentEvent
     {
         public string Type
         {
             get
             {
                 return this.GetType().AssemblyQualifiedName;
+            }
+            set
+            {
             }
         }
         public string id { get; set; }

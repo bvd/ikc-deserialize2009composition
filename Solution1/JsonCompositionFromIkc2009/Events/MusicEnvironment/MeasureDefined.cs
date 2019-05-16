@@ -10,6 +10,9 @@ namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
             {
                 return this.GetType().AssemblyQualifiedName;
             }
+            set
+            {
+            }
         }
         public int Numerator { get; set; }
         public int Denominator { get; set; }

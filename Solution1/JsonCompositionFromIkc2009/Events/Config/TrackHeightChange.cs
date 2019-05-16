@@ -10,6 +10,9 @@ namespace JsonCompositionFromIkc2009.Events.Config
             {
                 return this.GetType().AssemblyQualifiedName;
             }
+            set
+            {
+            }
         }
         public float Value { get; set; }
     }
