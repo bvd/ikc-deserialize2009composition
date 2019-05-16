@@ -4,16 +4,11 @@ namespace JsonCompositionFromIkc2009.Events.Composition
 {
     public class EventAddedToTrack : TableEntity, IComposition
     {
-        public string Type
+        public EventAddedToTrack()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         public int Track { get; set; }
         public int Index { get; set; }
         public int Start { get; set; }

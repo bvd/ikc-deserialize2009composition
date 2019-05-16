@@ -4,16 +4,11 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class SaveButtonVisibilityConfigured : TableEntity, IConfig
     {
-        public string Type
+        public SaveButtonVisibilityConfigured()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         public bool Visible { get; set; }
     }
 }

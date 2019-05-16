@@ -4,16 +4,11 @@ namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
 {
     public class TempoDefined : TableEntity, IMusicEnvironmentEvent
     {
-        public string Type
+        public TempoDefined()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         public float BpmTempo { get; set; }
     }
 }

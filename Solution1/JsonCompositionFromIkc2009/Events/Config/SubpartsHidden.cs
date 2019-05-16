@@ -4,16 +4,11 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class SubpartsHidden : TableEntity, IConfig
     {
-        public string Type
+        public SubpartsHidden()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         public string SubPartsCommaSeparated { get; set; }
     }
 }

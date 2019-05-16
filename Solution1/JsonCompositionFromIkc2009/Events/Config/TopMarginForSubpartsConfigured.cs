@@ -6,16 +6,11 @@ namespace JsonCompositionFromIkc2009.Events.Config
 
 
     {
-        public string Type
+        public TopMarginForSubpartsConfigured()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         public int TopMargin { get; set; }
     }
 }

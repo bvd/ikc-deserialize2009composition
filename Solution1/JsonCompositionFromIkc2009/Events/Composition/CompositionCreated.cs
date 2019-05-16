@@ -4,16 +4,11 @@ namespace JsonCompositionFromIkc2009.Events.Composition
 {
     public class CompositionCreated : TableEntity, IComposition
     {
-        public string Type
+        public CompositionCreated()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         public string Name { get; set; }
         public int Id { get; set; }
         public int? Time { get; set; }

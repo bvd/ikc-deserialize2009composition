@@ -4,16 +4,11 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class SloganLineHeightConfigured : TableEntity, IConfig
     {
-        public string Type
+        public SloganLineHeightConfigured()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         public int Height { get; set; }
     }
 }

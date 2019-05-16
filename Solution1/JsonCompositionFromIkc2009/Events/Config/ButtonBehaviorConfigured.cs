@@ -6,16 +6,11 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class ButtonBehaviorConfigured : TableEntity, IConfig
     {
-        public string Type
+        public ButtonBehaviorConfigured()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public ButtonPosition ButtonPosition { get; set; }
 

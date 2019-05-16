@@ -9,16 +9,11 @@ namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
 {
     public class MusicClipCreated : TableEntity, IMusicEnvironmentEvent
     {
-        public string Type
+        public MusicClipCreated()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         public string id { get; set; }
         public string partId { get; set; }
         public int exitpoint { get; set; }

@@ -4,16 +4,11 @@ namespace JsonCompositionFromIkc2009.Events.Scroll
 {
     public class ScrollItemAdded : TableEntity, IScroll
     {
-        public string Type
+        public ScrollItemAdded()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
         public string Name { get; set; }
         public int Index { get; set; }
         public string Id { get; set; }

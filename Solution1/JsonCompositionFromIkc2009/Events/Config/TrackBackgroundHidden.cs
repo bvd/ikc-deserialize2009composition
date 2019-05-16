@@ -4,15 +4,10 @@ namespace JsonCompositionFromIkc2009.Events.Config
 {
     public class TrackBackgroundHidden : TableEntity, IConfig
     {
-        public string Type
+        public TrackBackgroundHidden()
         {
-            get
-            {
-                return this.GetType().AssemblyQualifiedName;
-            }
-            set
-            {
-            }
+            this.Type = this.GetType().AssemblyQualifiedName;
         }
+        public string Type { get; set; }
     }
 }
