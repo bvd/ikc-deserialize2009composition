@@ -21,18 +21,18 @@ namespace JsonCompositionFromIkc2009.Events
     /// </summary>
     public class IkcomponeerData2009ToEventsTranslator
     {
-        private readonly List<ITableEntity> _environmentEvents = new List<ITableEntity>();
+        private readonly List<IMusicEnvironmentEvent> _environmentEvents = new List<IMusicEnvironmentEvent>();
 
         public override string ToString()
         {
-            List<ITableEntity> all = new List<ITableEntity>();
+            List<object> all = new List<object>();
             all.AddRange(ScrollEvents);
             all.AddRange(ProjectEvents);
             all.AddRange(EnvironmentEvents);
             all.AddRange(CompositionEvents);
             return JsonConvert.SerializeObject(all);
         }
-        public List<ITableEntity> EnvironmentEvents
+        public List<IMusicEnvironmentEvent> EnvironmentEvents
         {
             get
             {
@@ -40,9 +40,9 @@ namespace JsonCompositionFromIkc2009.Events
             }
         }
 
-        private readonly List<ITableEntity> _projectEvents = new List<ITableEntity>();
+        private readonly List<IConfig> _projectEvents = new List<IConfig>();
 
-        public List<ITableEntity> ProjectEvents
+        public List<IConfig> ProjectEvents
         {
             get
             {
@@ -50,9 +50,9 @@ namespace JsonCompositionFromIkc2009.Events
             }
         }
 
-        private readonly List<ITableEntity> _scrollEvents = new List<ITableEntity>();
+        private readonly List<IScroll> _scrollEvents = new List<IScroll>();
 
-        public List<ITableEntity> ScrollEvents
+        public List<IScroll> ScrollEvents
         {
             get
             {
@@ -60,9 +60,9 @@ namespace JsonCompositionFromIkc2009.Events
             }
         }
 
-        private readonly List<ITableEntity> _compositionEvents = new List<ITableEntity>();
+        private readonly List<IComposition> _compositionEvents = new List<IComposition>();
 
-        public List<ITableEntity> CompositionEvents
+        public List<IComposition> CompositionEvents
         {
             get
             {

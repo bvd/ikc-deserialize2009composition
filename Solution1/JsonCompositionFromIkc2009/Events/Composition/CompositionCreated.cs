@@ -1,8 +1,6 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
-
-namespace JsonCompositionFromIkc2009.Events.Composition
+﻿namespace JsonCompositionFromIkc2009.Events.Composition
 {
-    public class CompositionCreated : TableEntity, IComposition
+    public class CompositionCreated : IComposition
     {
         public CompositionCreated()
         {

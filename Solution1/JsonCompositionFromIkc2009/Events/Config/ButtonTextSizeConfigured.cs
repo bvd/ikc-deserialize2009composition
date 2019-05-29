@@ -1,10 +1,9 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace JsonCompositionFromIkc2009.Events.Config
 {
-    public class ButtonTextSizeConfigured : TableEntity, IConfig
+    public class ButtonTextSizeConfigured : IConfig
     {
         public ButtonTextSizeConfigured()
         {

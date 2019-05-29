@@ -1,13 +1,6 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
+﻿namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
 {
-    public class MusicClipCreated : TableEntity, IMusicEnvironmentEvent
+    public class MusicClipCreated : IMusicEnvironmentEvent
     {
         public MusicClipCreated()
         {

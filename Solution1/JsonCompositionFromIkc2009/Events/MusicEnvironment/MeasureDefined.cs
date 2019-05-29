@@ -1,8 +1,6 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
-
-namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
+﻿namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
 {
-    public class MeasureDefined : TableEntity, IMusicEnvironmentEvent
+    public class MeasureDefined : IMusicEnvironmentEvent
     {
         public MeasureDefined()
         {

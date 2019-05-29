@@ -1,8 +1,6 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
-
-namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
+﻿namespace JsonCompositionFromIkc2009.Events.MusicEnvironment
 {
-    public class MusicSetCreated : TableEntity, IMusicEnvironmentEvent
+    public class MusicSetCreated : IMusicEnvironmentEvent
     {
         public MusicSetCreated()
         {

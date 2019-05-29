@@ -136,6 +136,7 @@
     <Compile Include="Events\Config\TracksBackgroundConfigured.cs" />
     <Compile Include="Events\Config\TracksCentered.cs" />
     <Compile Include="Events\Config\ZoomFactorChange.cs" />
+    <Compile Include="Events\SerializedEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

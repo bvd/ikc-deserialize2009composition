@@ -1,8 +1,6 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
-
-namespace JsonCompositionFromIkc2009.Events.Composition
+﻿namespace JsonCompositionFromIkc2009.Events.Composition
 {
-    public class EventAddedToTrack : TableEntity, IComposition
+    public class EventAddedToTrack : IComposition
     {
         public EventAddedToTrack()
         {

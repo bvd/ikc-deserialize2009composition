@@ -1,8 +1,6 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
-
-namespace JsonCompositionFromIkc2009.Events.Config
+﻿namespace JsonCompositionFromIkc2009.Events.Config
 {
-    public class MagicDelayConfigured : TableEntity, IConfig
+    public class MagicDelayConfigured : IConfig
     {
         public MagicDelayConfigured()
         {

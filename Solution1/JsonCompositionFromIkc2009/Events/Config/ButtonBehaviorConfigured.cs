@@ -1,10 +1,9 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace JsonCompositionFromIkc2009.Events.Config
 {
-    public class ButtonBehaviorConfigured : TableEntity, IConfig
+    public class ButtonBehaviorConfigured : IConfig
     {
         public ButtonBehaviorConfigured()
         {
