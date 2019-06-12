@@ -453,7 +453,7 @@ namespace JsonCompositionFromIkc2009.Events
                     Scroll = root.scrollitems_identifier,
                     Environment = root.environment_identifier,
                     Name = root.composition.name,
-                    Id = root.composition.id,
+                    Id = root.composition.id.ToString(),
                     Time = root.composition.created,
                     User = root.composition.user_id,
                     UserName = root.composition.username

@@ -39,7 +39,7 @@ namespace JsonCompositionFromIkc2009.Test
             var createdEvent = evt as CompositionCreated;
 
             Assert.IsNotNull(createdEvent);
-            Assert.AreEqual(createdEvent.Id, 38118);
+            Assert.AreEqual(createdEvent.Id, "38118");
             Assert.AreEqual(createdEvent.Name, "Tour de France");
             Assert.AreEqual(createdEvent.Time, 1442769290);
             Assert.AreEqual(createdEvent.User, 132101);
